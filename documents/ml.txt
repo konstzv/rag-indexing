@@ -1,0 +1,14 @@
+Machine learning uses neural networks to learn patterns from data.
+Embeddings are vector representations of text in high-dimensional space.
+RAG (Retrieval Augmented Generation) helps find similar documents using semantic search.
+
+Natural language processing transforms text into numerical vectors.
+Cosine similarity measures the angle between two vectors.
+A similarity of 1.0 means vectors point in the same direction.
+A similarity of 0.0 means vectors are orthogonal and unrelated.
+
+Transformers use self-attention mechanisms to understand context.
+The attention mechanism weighs the importance of each token relative to others.
+
+Vector databases store embeddings for efficient similarity search.
+Ollama is a tool for running language models locally on your machine.

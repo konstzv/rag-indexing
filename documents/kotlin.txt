@@ -1,0 +1,14 @@
+Kotlin is a modern programming language for the JVM.
+Coroutines in Kotlin allow you to write asynchronous code in a sequential manner.
+Suspending functions are the building blocks of coroutines.
+They work without blocking the main thread.
+
+Kotlin is interoperable with Java, making migration easy.
+Type inference reduces boilerplate code.
+Null safety is built into the type system.
+
+Data classes provide automatic equals, hashCode, and toString.
+Extension functions allow adding functionality to existing classes.
+
+Kotlin can be used for Android development, backend services, and multiplatform applications.
+The language emphasizes expressiveness and safety while remaining concise.
