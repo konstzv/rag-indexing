@@ -32,7 +32,7 @@ class OllamaClient(
             })
         }
         install(HttpTimeout) {
-            requestTimeoutMillis = 60000  // 60 second timeout
+            requestTimeoutMillis = 300000  // 5 minute timeout (for slower hardware)
         }
     }
 ) {
@@ -128,8 +128,25 @@ class OllamaClient(
                     ))
                 }
 
-                val generateResponse = response.body<GenerateResponse>()
-                generateResponse.response
+                // Ollama returns NDJSON even with stream=false
+                // Each line contains a JSON object with a piece of the response
+                // We need to accumulate all "response" fields from all lines
+                val responseText = response.body<String>()
+
+                val json = Json { ignoreUnknownKeys = true }
+                val lines = responseText.trim().lines().filter { it.isNotBlank() }
+
+                // Accumulate response pieces from all JSON lines
+                val fullResponse = buildString {
+                    lines.forEach { line ->
+                        val partialResponse = json.decodeFromString<GenerateResponse>(line)
+                        append(partialResponse.response)
+                    }
+                }
+
+                println("DEBUG: Generated ${lines.size} lines, response length: ${fullResponse.length}")
+
+                fullResponse
             } catch (e: Exception) {
                 throw Exception("Failed to generate text: ${e.message}", e)
             }
