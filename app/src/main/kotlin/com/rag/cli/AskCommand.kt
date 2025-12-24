@@ -18,11 +18,13 @@ class AskCommand(
      *
      * @param question The user's question
      * @param topK Number of chunks to retrieve (default: 3)
+     * @param minSimilarity Minimum similarity threshold (default: 0.3, range: 0.0-1.0)
      * @param model LLM model to use (default: "llama2")
      */
     fun executeWithRAG(
         question: String,
         topK: Int = 3,
+        minSimilarity: Double = 0.3,
         model: String = "llama2"
     ) = runBlocking {
         println("=".repeat(60))
@@ -36,6 +38,7 @@ class AskCommand(
         val response = ragAgent.answerWithRAG(
             question = question,
             topK = topK,
+            minSimilarity = minSimilarity,
             model = model
         )
 
@@ -56,7 +59,7 @@ class AskCommand(
                 println()
             }
         } else {
-            println("⚠️  No relevant chunks found (similarity < 0.3)")
+            println("⚠️  No relevant chunks found (similarity < $minSimilarity)")
             println()
         }
 

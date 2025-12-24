@@ -33,12 +33,14 @@ class RAGAgent(
      *
      * @param question User's question
      * @param topK Number of chunks to retrieve (default: 3)
+     * @param minSimilarity Minimum similarity threshold (default: 0.3, range: 0.0-1.0)
      * @param model LLM model to use (default: "llama2")
      * @return RAGResponse with answer and retrieved chunks
      */
     suspend fun answerWithRAG(
         question: String,
         topK: Int = 3,
+        minSimilarity: Double = 0.3,
         model: String = "llama2"
     ): RAGResponse {
         // Step 1: Generate embedding for the question
@@ -48,7 +50,7 @@ class RAGAgent(
         val searchResults = vectorSearch.search(
             queryEmbedding = queryEmbedding,
             topK = topK,
-            minSimilarity = 0.3  // Only use chunks with >30% similarity
+            minSimilarity = minSimilarity
         )
 
         // Step 3: Build context from retrieved chunks
