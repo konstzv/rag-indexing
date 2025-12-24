@@ -1,0 +1,31 @@
+Cloud Computing and DevOps Practices
+
+Cloud computing delivers computing resources over the internet on-demand. Infrastructure as a Service (IaaS) provides virtual machines, storage, and networking. Platform as a Service (PaaS) offers development platforms without managing underlying infrastructure. Software as a Service (SaaS) delivers applications through web browsers.
+
+Virtualization enables multiple virtual machines to run on single physical hardware, maximizing resource utilization. Hypervisors manage virtual machine creation and execution. Virtual machines provide isolation and flexibility but carry overhead from running complete operating systems.
+
+Containers package applications with their dependencies, ensuring consistent execution across environments. Docker popularized containerization with simple tooling and image registries. Containers share the host operating system kernel, making them lighter and faster than virtual machines. Container images layer filesystems for efficient storage and transfer.
+
+Container orchestration manages deployment, scaling, and operation of containerized applications. Kubernetes automates container scheduling across clusters of machines. Services provide stable networking endpoints. Deployments manage rolling updates and rollbacks. ConfigMaps and Secrets handle configuration and sensitive data.
+
+Microservices architecture decomposes applications into small, independent services. Each service focuses on specific business capabilities and can be developed, deployed, and scaled independently. API gateways route requests and handle cross-cutting concerns like authentication. Service meshes manage service-to-service communication.
+
+Continuous Integration (CI) automatically builds and tests code changes. Developers commit code frequently to shared repositories. Automated tests run on every commit, catching issues early. Build artifacts are versioned and stored for deployment. Fast feedback loops accelerate development cycles.
+
+Continuous Deployment (CD) automates release processes, delivering changes to production rapidly and reliably. Deployment pipelines define stages from build to production. Blue-green deployments minimize downtime by switching traffic between environments. Canary releases gradually roll out changes to subsets of users.
+
+Infrastructure as Code (IaC) manages infrastructure through version-controlled code rather than manual processes. Terraform defines infrastructure declaratively across multiple cloud providers. Configuration management tools like Ansible automate server configuration. Version control enables review, rollback, and collaboration on infrastructure changes.
+
+Monitoring and observability provide visibility into system behavior and health. Metrics track quantitative measurements like CPU usage and request rates. Logs record discrete events for debugging and audit trails. Distributed tracing follows requests across services to identify performance bottlenecks.
+
+Site Reliability Engineering (SRE) applies software engineering practices to operations. Service Level Objectives (SLOs) define target reliability. Error budgets balance reliability and innovation. Incident response procedures minimize downtime. Post-mortems learn from failures without blame.
+
+Cloud security requires shared responsibility between providers and customers. Identity and Access Management (IAM) controls who can access resources. Encryption protects data at rest and in transit. Network security groups filter traffic. Regular security audits identify vulnerabilities.
+
+Cost optimization balances performance and expenses. Right-sizing matches resources to workload requirements. Auto-scaling adjusts capacity based on demand. Reserved instances reduce costs for predictable workloads. Spot instances leverage spare capacity at lower prices for fault-tolerant jobs.
+
+Serverless computing executes code without managing servers. Functions trigger in response to events, scaling automatically. Pay-per-use pricing charges only for execution time. Reduced operational overhead lets teams focus on business logic. Cold starts can introduce latency for infrequently used functions.
+
+Multi-cloud and hybrid cloud strategies use multiple cloud providers or combine cloud and on-premises infrastructure. Avoiding vendor lock-in provides flexibility. Geographic distribution improves latency and compliance. However, increased complexity requires additional management tooling and expertise.
+
+DevOps culture emphasizes collaboration between development and operations teams. Shared responsibility for code quality and reliability. Automation reduces manual toil and human error. Continuous learning and improvement through experimentation and feedback. Blameless post-mortems foster psychological safety and learning from incidents.

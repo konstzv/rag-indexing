@@ -1,0 +1,29 @@
+Databases and Data Science Fundamentals
+
+Relational databases organize data into tables with rows and columns. SQL (Structured Query Language) enables querying and manipulating relational data. Primary keys uniquely identify records, while foreign keys establish relationships between tables. Normalization reduces redundancy and maintains data integrity.
+
+Indexes improve query performance by creating auxiliary data structures for fast lookups. B-tree indexes handle range queries efficiently. Hash indexes optimize exact-match searches. However, indexes consume storage and slow down write operations, requiring careful trade-off analysis.
+
+Transactions ensure data consistency through ACID properties. Atomicity guarantees all-or-nothing execution. Consistency maintains database validity rules. Isolation prevents interference between concurrent transactions. Durability ensures committed changes survive system failures.
+
+NoSQL databases provide alternatives to relational models for specific use cases. Document databases like MongoDB store semi-structured data as JSON-like documents. Key-value stores offer simple, fast lookups. Column-family databases handle massive datasets across distributed systems. Graph databases excel at modeling and querying interconnected data.
+
+Data warehousing consolidates data from multiple sources for analysis. ETL (Extract, Transform, Load) processes move and prepare data. Star and snowflake schemas organize dimensional data for efficient querying. OLAP (Online Analytical Processing) enables multidimensional analysis and business intelligence.
+
+Data science combines statistics, programming, and domain expertise to extract insights from data. The data science workflow includes problem definition, data collection, cleaning, exploration, modeling, evaluation, and deployment. Effective communication of findings to stakeholders is crucial for impact.
+
+Statistical analysis forms the foundation of data science. Descriptive statistics summarize data characteristics using measures like mean, median, and standard deviation. Inferential statistics draw conclusions about populations from samples. Hypothesis testing evaluates claims using statistical evidence.
+
+Data visualization communicates patterns and insights effectively. Bar charts compare categories. Line graphs show trends over time. Scatter plots reveal relationships between variables. Heat maps display matrix data. Interactive dashboards enable exploration and self-service analytics.
+
+Feature engineering transforms raw data into meaningful inputs for machine learning models. Creating interaction features captures relationships between variables. Encoding categorical variables converts them to numerical representations. Feature scaling normalizes ranges for algorithms sensitive to magnitude.
+
+Model evaluation assesses predictive performance using appropriate metrics. Accuracy measures overall correctness but can mislead with imbalanced classes. Precision and recall trade off false positives and false negatives. ROC curves visualize classifier performance across thresholds. Cross-validation estimates generalization to unseen data.
+
+Data pipelines automate the flow from raw data to insights. Orchestration tools schedule and monitor workflows. Data quality checks validate inputs and outputs. Version control tracks changes to code and configurations. Monitoring alerts detect failures and performance degradation.
+
+Big data technologies handle volume, velocity, and variety beyond traditional systems. Hadoop provides distributed storage and processing. Spark enables fast in-memory computation. Stream processing frameworks handle real-time data flows. Cloud platforms offer scalable infrastructure and managed services.
+
+Data ethics addresses privacy, consent, fairness, and accountability. Anonymization protects individual identities. Differential privacy adds noise to preserve privacy while enabling analysis. Bias in data and algorithms can perpetuate discrimination, requiring careful attention to fairness metrics and mitigation strategies.
+
+Data governance establishes policies and procedures for data management. Data catalogs document available datasets and metadata. Access controls restrict data based on roles and sensitivity. Compliance with regulations like GDPR requires understanding legal requirements and implementing appropriate safeguards.

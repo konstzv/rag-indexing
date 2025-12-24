@@ -1,0 +1,5 @@
+Git Version Control Basics
+
+Git is a distributed version control system. Each developer has a complete copy of the repository history. Commits create snapshots of changes. Branches enable parallel development. Merging combines changes from different branches.
+
+The staging area allows selective commit preparation. Push uploads commits to remote repositories. Pull downloads and integrates remote changes. Rebase rewrites commit history for cleaner timelines.
