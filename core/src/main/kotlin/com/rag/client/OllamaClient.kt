@@ -46,11 +46,29 @@ class OllamaClient(
     )
 
     /**
-     * Response from Ollama API
+     * Response from Ollama API for embeddings
      */
     @Serializable
     data class EmbeddingResponse(
         val embedding: List<Float>  // The 768-dimensional vector
+    )
+
+    /**
+     * Request body for chat/generate API
+     */
+    @Serializable
+    data class GenerateRequest(
+        val model: String,      // e.g., "llama2", "mistral"
+        val prompt: String,     // The prompt/question
+        val stream: Boolean = false  // Don't stream, get full response
+    )
+
+    /**
+     * Response from chat/generate API
+     */
+    @Serializable
+    data class GenerateResponse(
+        val response: String    // The generated text
     )
 
     /**
@@ -78,6 +96,42 @@ class OllamaClient(
                 embeddingResponse.embedding
             } catch (e: Exception) {
                 throw Exception("Failed to generate embedding: ${e.message}", e)
+            }
+        }
+    }
+
+    /**
+     * Generate text using a language model.
+     *
+     * Sends a prompt to Ollama and receives a generated text response.
+     *
+     * Example:
+     *   Input: "What is Kotlin?"
+     *   Output: "Kotlin is a modern programming language..."
+     *
+     * @param prompt The question or prompt text
+     * @param model The LLM model to use (default: "llama2")
+     * @return Generated text response
+     */
+    suspend fun generateText(
+        prompt: String,
+        model: String = "llama2"
+    ): String {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = httpClient.post("$baseUrl/api/generate") {
+                    contentType(ContentType.Application.Json)
+                    setBody(GenerateRequest(
+                        model = model,
+                        prompt = prompt,
+                        stream = false
+                    ))
+                }
+
+                val generateResponse = response.body<GenerateResponse>()
+                generateResponse.response
+            } catch (e: Exception) {
+                throw Exception("Failed to generate text: ${e.message}", e)
             }
         }
     }
